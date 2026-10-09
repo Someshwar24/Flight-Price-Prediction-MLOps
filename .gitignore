@@ -1,0 +1,9 @@
+venv/
+__pycache__/
+*.pyc
+.env
+.git/
+.ipynb_checkpoints/
+mlruns/
+.DS_Store
+mlflow.db
