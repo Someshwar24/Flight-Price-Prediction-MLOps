@@ -4,25 +4,26 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                echo 'Flight Price Prediction project is ready.'
+                git branch: 'master',
+                    url: 'https://github.com/Someshwar24/Flight-Price-Prediction-MLOps.git'
             }
+        }
+
+        stage('API Syntax Check') {
+            steps {
+                bat 'python -m py_compile app.py'
+    }
         }
 
         stage('Check Python') {
             steps {
-                bat 'py --version'
+                bat 'python --version'
             }
         }
 
         stage('Install Dependencies') {
             steps {
                 bat 'py -m pip install -r requirements.txt'
-            }
-        }
-
-        stage('Test API Code') {
-            steps {
-                bat 'py -m py_compile app.py'
             }
         }
 
